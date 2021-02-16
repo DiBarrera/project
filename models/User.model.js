@@ -5,20 +5,20 @@ const userSchema = new Schema(
         username: {
             type: String,
             trim: true,
-            required: [true, 'Username is required'],
+            required: [true, 'Usuario es requerido'],
             unique: true
         },
         email: {
             type: String,
             trim: true,
-            required: [true, 'Email is required'],
+            required: [true, 'Email es requerido'],
             unique: true,
             lowercase: true,
-            match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address.']
+            match: [/^\S+@\S+\.\S+$/, 'Porfavor, inserte una dirección de correo valida.']
         },
         passwordHash: {
             type: String,
-            required: [true, 'Password is required']
+            required: [true, 'Password es requerido']
         }
     },
     {

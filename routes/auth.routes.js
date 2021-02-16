@@ -59,7 +59,7 @@ router.post('/signup', (req, res, next) => {
 
 // GET - PERFIL DE USUARIO
 router.get('/userProfile', (req, res) => {
-  res.render('users/user-profile', { userInSession: req.session.currentUser});
+  res.render('users/user-profile', { userInSession: req.session.currentUser });
 });
 
 

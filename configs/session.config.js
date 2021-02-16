@@ -14,9 +14,9 @@ module.exports = app => {
       saveUninitialized: false,
       secret: "holamundo",
       cookie: {
-        sameSite: 'false',
+        sameSite: false,
         httpOnly: true,
-        // maxAge: 60000 // Tiempo máximo de la galleta
+        maxAge: 86400000
       },
       store: new MongoStore({
         mongooseConnection: mongoose.connection,

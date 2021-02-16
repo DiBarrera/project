@@ -11,7 +11,12 @@ const path = require('path');
 const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
+// Routes
 const authentication = require('./routes/auth.routes')
+
+const indexRouter = require('./routes/index.routes');
+const authRouter = require('./routes/auth.routes');
+const userRouter = require('./routes/auth.routes')
 
 const app = express();
 
@@ -24,6 +29,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use('/', authentication)
+
+// Routes middleware
+app.use('/', indexRouter);
+app.use('/', authRouter);
+app.use('/', userRouter)
 
 // Express View engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -1,13 +1,10 @@
-{{!--views/users/user-profile.hbs --}}
-
-{{!-- the new version, with the session: --}}
-
 {{#if userInSession}}
-    <h2>Welcome, {{ userInSession.username }}!</h2>
-    <p>This is your profile page my friend!</p>
+    <h2>Bienvenido, {{ userInSession.username }}!</h2>
+    <p>Esta es tu página de perfil!</p>
     <button>
-        <a href="/userProfile">Reload the page</a>
+        <a href="/userProfile">Refresca la página</a>
     </button>
 {{else}}
-    <p>Still no logged in user, sorry!</p>
+  <p>Aún no has ingresadooo!</p>
+  <a href="/login">Log in</a>
 {{/if}}

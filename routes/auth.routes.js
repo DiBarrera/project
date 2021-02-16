@@ -42,7 +42,7 @@ router.post('/signup', (req, res, next) => {
     })
     .then(userFromDB => {
       console.log('Nuevo usuario creado: ', userFromDB);
-      res.redirect('/userProfile');
+      res.redirect('userProfile');
     })
     .catch(error => {
       if (error instanceof mongoose.Error.ValidationError) {
@@ -59,16 +59,14 @@ router.post('/signup', (req, res, next) => {
 
 // GET - PERFIL DE USUARIO
 router.get('/userProfile', (req, res) => {
-  res.render('users/user-profile', { userInSession: req.session.currentUser });
+  res.render('users/user-profile', { userInSession: req.session.currentUser});
 });
 
 
 // LOGIN
  
-// .get() route ==> to display the login form to users
 router.get('/login', (req, res) => res.render('auth/login'));
 
-// .post() route ==> process form
 router.post('/login', (req, res, next) => {
 
   console.log('SESSION =====> ', req.session);
@@ -81,7 +79,7 @@ router.post('/login', (req, res, next) => {
     return;
   }
 
-  User.findOne({ email }) // <== check if there's user with the provided email
+  User.findOne({ email })
         .then(user => {
 
           if (!user) {

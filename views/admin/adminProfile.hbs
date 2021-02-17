@@ -1,0 +1,8 @@
+{{#if adminInSession}}
+    <h2>Bienvenido, {{ adminInSession.admin }}!</h2>
+    <p>Esta es tu página de perfil!</p>
+
+{{else}}
+  <p>Aún no has ingresadoooasdfasdf!</p>
+  <a href="/login">Log in</a>
+{{/if}}

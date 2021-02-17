@@ -131,7 +131,7 @@ router.post('/login-admin', (req, res, next) => {
           else if (bcrypt.compareSync(password, user.passwordHash)) {
 
             req.session.currentUser = user;
-            res.redirect('/admin/adminProfile');
+            res.redirect('admin/userAdmin');
 
           } else {
             res.render('auth/login', { errorMessage2: 'Password incorrecto.' });
@@ -140,8 +140,9 @@ router.post('/login-admin', (req, res, next) => {
         .catch(error => next(error));
 })
 
-// router.get('/admin/adminProfile', (req, res) => {
-//   res.render('admin/adminProfile', {})
+// router.get('/admin/userAdmin', (req, res) => {
+//   const
+//   res.render('admin/userAdmin', {})
 // })
 
 

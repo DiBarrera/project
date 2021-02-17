@@ -145,12 +145,7 @@ router.post('/login-admin', (req, res, next) => {
 //   res.render('admin/userAdmin', {})
 // })
 
-// LOGOUT
 
-router.post('/logout', (req, res) => {
-  req.session.destroy();
-  res.redirect('/');
-});
 
 // PRIVADO
 
@@ -163,6 +158,12 @@ router.get('/private' ,(req,res) => {
   res.send("No estas loggeado, es un área privada.")
 })
 
+// LOGOUT
+
+router.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
 
 // EXPORTACIÓN
 module.exports = router;

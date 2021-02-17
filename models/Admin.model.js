@@ -1,11 +1,11 @@
 const {Schema, model} = require('mongoose')
 
-const userSchema = new Schema(
+const adminSchema = new Schema(
         {
-        username: {
+        artista: {
             type: String,
             trim: true,
-            required: [true, 'Usuario es requerido'],
+            required: true,
             unique: true
         },
         nombre: {
@@ -37,4 +37,4 @@ const userSchema = new Schema(
     }
 )
 
-module.exports = model('User', userSchema)
+module.exports = model('Admin', adminSchema)

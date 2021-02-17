@@ -1,5 +1,5 @@
 <div id="form">
-  <h2>Login</h2>
+  <h2>Registrarse como usuario</h2>
   <form action="/login" method="POST">
     <label for="input-email">Correo</label>
     <input type="email" id="input-email" name="email" placeholder="Ingrese su correo" />
@@ -14,3 +14,22 @@
     {{/if}}
   </form>
 </div>
+
+<div id="form">
+  <h2>Registrarse como Admin</h2>
+  <form action="/login-admin" method="POST">
+    <label for="input-email">Correo</label>
+    <input type="email" id="input-email" name="email" placeholder="Ingrese su correo" />
+
+    <label for="input-password">Contraseña</label>
+    <input type="password" name="password" id="input-password" placeholder="Ingrese su contraseña" />
+
+    <button type="submit">Login</button>
+
+    {{#if errorMessage2}}
+      <p class="error">{{errorMessage2}}</p>
+    {{/if}}
+  </form>
+</div>
+
+{{!--  /login-admin --}}

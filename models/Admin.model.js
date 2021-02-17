@@ -2,7 +2,7 @@ const {Schema, model} = require('mongoose')
 
 const adminSchema = new Schema(
         {
-        artista: {
+        admin: {
             type: String,
             trim: true,
             required: true,
@@ -30,7 +30,8 @@ const adminSchema = new Schema(
         passwordHash: {
             type: String,
             required: [true, 'Password es requerido']
-        }
+        },
+        designs: [{type: Schema.Types.ObjectId}], 
     },
     {
         timestamps: true

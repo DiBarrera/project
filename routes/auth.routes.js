@@ -3,8 +3,10 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 const saltRound = 10
 const mongoose = require('mongoose');
+const Admin = require('../models/Admin.model.js')
 const User = require('../models/User.model.js')
 const saltRounds = 10;
+const uploadCloud = require('../configs/cloudinary.config')
 
 // RUTAS
 
@@ -102,6 +104,48 @@ router.post('/login', (req, res, next) => {
         .catch(error => next(error));
 
 })
+
+// Log in Admin
+
+router.post('/login-admin', (req, res, next) => {
+
+  console.log('SESSION =====> ', req.session);
+  const { email, password } = req.body;
+
+  if (email === '' || password === '') {
+    res.render('auth/login', {
+      errorMessage2: 'Para ingresar, por favor escriba correo y contraseña.'
+    });
+    return;
+  }
+
+  Admin.findOne({ email })
+        .then(user => {
+
+          if (!user) {
+            res.render('auth/login', {
+              errorMessage2: 'El correo no esta registrado, porfavor intente con otro correo.'
+            });
+            return;
+          }
+
+          else if (bcrypt.compareSync(password, user.passwordHash)) {
+            // res.render('users/userProfile', { user });
+
+            req.session.currentUser = user;
+            res.redirect('admin/userAdmin');
+
+          } else {
+            res.render('auth/login', { errorMessage2: 'Password incorrecto.' });
+          }
+        })
+        .catch(error => next(error));
+})
+
+// router.get('/admin/userAdmin', (req, res) => {
+//   const
+//   res.render('admin/userAdmin', {})
+// })
 
 // LOGOUT
 

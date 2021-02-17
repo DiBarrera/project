@@ -1,0 +1,19 @@
+<h2>Añade un diseño</h2>
+
+<form action="/admin/designs" method="POST" enctype='multipart/form-data'>
+
+  <label for="artistDesign">Nombre del artista: </label>
+  <input type="text" name="artistDesign" placeholder="Tu nombre" />
+
+  <label for="title">Titulo: </label>
+  <input type="text" name="title" placeholder="Titulo del diseño"/>
+
+  <label for="design">Diseño</label>
+  <input type="file" name="design" />
+
+  <label for="description">Descripción: </label>
+  <textarea type="text" name="description" placeholder="Añade una descripción de tu diseño"></textarea>
+
+  <button type="submit">Subir diseño</button>
+
+</form>

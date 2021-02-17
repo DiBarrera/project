@@ -2,13 +2,16 @@ const {Schema, model} = require('mongoose')
 
 const designsSchema = new Schema(
         {
-        artistaDiseño: {
+        artistDesign: {
             type: String,
             trim: true,
             required: true,
             unique: true
         },
-        nombre: {
+        title: {
+            type: String
+        },
+        path: {
             type: String
         },
         descriptcion: {

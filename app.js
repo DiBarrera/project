@@ -12,11 +12,12 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 // Routes
-const authentication = require('./routes/auth.routes')
 
 const indexRouter = require('./routes/index.routes');
 const authRouter = require('./routes/auth.routes');
-const userRouter = require('./routes/auth.routes')
+const adminRouter = require('./routes/admin.routes');
+const userRouter = require('./routes/user.routes');
+const designsRouter = require('./routes/designs.routes');
 
 const app = express();
 
@@ -29,12 +30,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use('/', authentication)
 
 // Routes middleware
 app.use('/', indexRouter);
 app.use('/', authRouter);
-app.use('/', userRouter)
+app.use('/', adminRouter);
+app.use('/', userRouter);
+app.use('/', designsRouter);
 
 // Express View engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -92,7 +92,6 @@ router.post('/login', (req, res, next) => {
           }
 
           else if (bcrypt.compareSync(password, user.passwordHash)) {
-            // res.render('users/userProfile', { user });
 
             req.session.currentUser = user;
             res.redirect('/userProfile');
@@ -130,7 +129,6 @@ router.post('/login-admin', (req, res, next) => {
           }
 
           else if (bcrypt.compareSync(password, user.passwordHash)) {
-            // res.render('users/userProfile', { user });
 
             req.session.currentUser = user;
             res.redirect('admin/userAdmin');

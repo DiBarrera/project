@@ -1,11 +1,10 @@
 const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
-const saltRound = 10
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 const Admin = require('../models/Admin.model.js')
 const User = require('../models/User.model.js')
-const saltRounds = 10;
+const saltRounds = 10
 const uploadCloud = require('../configs/cloudinary.config')
 
 // RUTAS
@@ -44,7 +43,7 @@ router.post('/signup', (req, res, next) => {
     })
     .then(userFromDB => {
       console.log('Nuevo usuario creado: ', userFromDB);
-      res.redirect('userProfile');
+      res.redirect('/user-profile');
     })
     .catch(error => {
       if (error instanceof mongoose.Error.ValidationError) {
@@ -60,7 +59,7 @@ router.post('/signup', (req, res, next) => {
 });
 
 // GET - PERFIL DE USUARIO
-router.get('/userProfile', (req, res) => {
+router.get('/user-profile', (req, res) => {
   res.render('users/user-profile', { userInSession: req.session.currentUser });
 });
 
@@ -94,7 +93,7 @@ router.post('/login', (req, res, next) => {
           else if (bcrypt.compareSync(password, user.passwordHash)) {
 
             req.session.currentUser = user;
-            res.redirect('/userProfile');
+            res.redirect('/user-profile');
 
           } else {
             res.render('auth/login', { errorMessage: 'Password incorrecto.' });
@@ -106,23 +105,25 @@ router.post('/login', (req, res, next) => {
 
 // LOGIN ADMIN
 
+router.get('/login-admin', (req, res) => res.render('auth/login-admin'));
+
 router.post('/login-admin', (req, res, next) => {
 
   console.log('SESSION =====> ', req.session);
   const { email, password } = req.body;
 
   if (email === '' || password === '') {
-    res.render('auth/login', {
+    res.render('auth/login-admin', {
       errorMessage2: 'Para ingresar, por favor escriba correo y contraseña.'
     });
     return;
   }
 
   Admin.findOne({ email })
-        .then(user => {
+        .then(adminUser => {
 
           if (!user) {
-            res.render('auth/login', {
+            res.render('auth/login-admin', {
               errorMessage2: 'El correo no esta registrado, porfavor intente con otro correo.'
             });
             return;
@@ -130,11 +131,11 @@ router.post('/login-admin', (req, res, next) => {
 
           else if (bcrypt.compareSync(password, user.passwordHash)) {
 
-            req.session.currentUser = user;
-            res.redirect('/admin/adminProfile');
+            req.session.adminUser = adminUser;
+            res.redirect('/adminProfile');
 
           } else {
-            res.render('auth/login', { errorMessage2: 'Password incorrecto.' });
+            res.render('auth/login-admin', { errorMessage2: 'Password incorrecto.' });
           }
         })
         .catch(error => next(error));
@@ -148,14 +149,14 @@ router.post('/login-admin', (req, res, next) => {
 
 // PRIVADO
 
-router.get('/private' ,(req,res) => {
+// router.get('/private' ,(req,res) => {
   
-  if(req.session.currentUser) {
-    return res.render("private")
-  }
+//   if(req.session.currentUser) {
+//     return res.render("private")
+//   }
 
-  res.send("No estas loggeado, es un área privada.")
-})
+//   res.send("No estas loggeado, es un área privada.")
+// })
 
 // LOGOUT
 

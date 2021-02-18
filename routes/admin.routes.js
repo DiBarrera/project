@@ -18,7 +18,7 @@ router.post('/upload-img', uploadCloud.single('design'), (req, res, next) => {
   Designs.create({
     artistDesign, title, design, description
   })
-   .then((respuestaDeLaBaseDeDatosCuandoCreeElDiseño) => {
+   .then((designToDataBase) => {
      res.redirect('/gallery')
    })
    .catch(console.log(error))
@@ -26,10 +26,11 @@ router.post('/upload-img', uploadCloud.single('design'), (req, res, next) => {
 
 router.get('/gallery', (req, res, next) => {
   Designs.find()
-    .then((respuestaDeLaBaseDeDatosCuandoEncuentraTodosLosDiseños) => {
-      const informacionQueVoyAMandarALaVista = respuestaDeLaBaseDeDatosCuandoEncuentraTodosLosDiseños
-      res.render('gallery',  { informacionQueVoyAMandarALaVista })
+    .then((oneDesignFound) => {
+      const uploadInfo = oneDesignFound
+      res.render('gallery',  { uploadInfo })
     })
   res.render('gallery')
 })
+
 module.exports = router;

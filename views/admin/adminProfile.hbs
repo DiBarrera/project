@@ -1,8 +1,10 @@
-{{#if adminInSession}}
-    <h2>Bienvenido, {{ adminInSession.admin }}!</h2>
+{{> navigation this }}
+
+{{#if cookie}}
+    <h2>Bienvenido, {{ cookie.admin }}!</h2>
     <p>Administrador, esta es tu página de perfil!</p>
 
 {{else}}
-  <p>Aún no has ingresado>
-  <a href="/login-admin">Log in</a>
+  <p>Aún no has ingresado!</p>
+  <a href="/login">Log in</a>
 {{/if}}

@@ -11,10 +11,6 @@ router.get('/upload-design', (req, res, next ) => {
   res.render('admin/upload-design')
 })
 
-router.get('/adminProfile', (req, res, next ) => {
-  res.render('admin/adminProfile')
-})
-
 router.post('/upload-design', uploadCloud.single('design'), (req, res, next) => {
   req.session
   const { artistDesign, title, description } = req.body

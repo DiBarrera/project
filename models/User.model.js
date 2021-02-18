@@ -22,14 +22,13 @@ const userSchema = new Schema(
             lowercase: true,
             match: [/^\S+@\S+\.\S+$/, 'Porfavor, inserte una dirección de correo valida.']
         },
-        telefono: {
-            type: String,
-            trim: true,
-            unique: true
-        },
         passwordHash: {
             type: String,
             required: [true, 'Password es requerido']
+        },
+        role: {
+            type: Number,
+            enum: [0, 1]
         }
     },
     {

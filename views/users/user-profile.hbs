@@ -1,3 +1,5 @@
+{{> navigation this }}
+
 {{#if userInSession}}
     <h2>Bienvenido, {{ userInSession.username }}!</h2>
     <p>Esta es tu página de perfil!</p>
@@ -5,6 +7,7 @@
         <a href="/user-profile">Refresca la página</a>
     </button>
 {{else}}
+{{> navigation this }}
   <p>Aún no has ingresadooo!</p>
   <a href="/login">Log in</a>
 {{/if}}

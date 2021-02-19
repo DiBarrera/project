@@ -1,26 +1,37 @@
 {{> navigation this }}
 
-<p>Gallery</p>
-
-
-
-{{#each this.uploadInfo}}
-
-    <div class="col">
-
-    <p>Nombre artista: {{this.artistDesign}}</p> 
-
-    <p>Titulo: {{this.title}}</p> 
-
-    <img src="{{this.path}}">
-
-    <p>Descripción: {{this.description}}</p>
-    <form action="/edit/{{this._id}}" method="GET">
-        <button type="submit">Editar</button>
-    </form>
-    <form action="/delete/{{this.id}}" method="POST">
-        <button type="submit">Borrar</button>
-    </form>
-
+<section class="container text-center mx-auto">
+    <div class="col-md-12 col-sm-12">
+        <h1>Gallery CampoSanto</h1>
     </div>
+</section>
+
+<div class="d-flex flex-row-reverse flex-wrap-reverse">
+     
+{{#each this.uploadInfo}}
+    
+    <div class="col p-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-title">
+                <h3>Nombre del artista: {{this.artistDesign}}</h3>
+            </div>
+            <p>Titulo: {{this.title}}</p>
+            <img class="card-img-top img-fluid" src="{{this.path}}" alt="Design">
+            <div class="card-body">
+                <p class="card-text">Descripción: {{this.descriptcion}}.</p>
+            </div>
+            <div class="modal-footer">
+                <form action="/edit/{{this._id}}" method="GET">
+                    <button type="submit" class="btn btn-primary">Editar</button>
+                </form>
+                <form action="/delte/{{this.id}}" method="POST">
+                    <button type="submit" class="btn btn-secondary">Borrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
 {{/each}}
+
+</div>

@@ -1,6 +1,10 @@
 {{> navigation this }}
 
-<h2>Añade un diseño</h2>
+<section class="container text-center mx-auto">
+    <div class="col-md-12 col-sm-12">
+        <h1>Añade un diseño</h1>
+    </div>
+</section>
 
 <form action="/upload-design" method="POST" enctype='multipart/form-data'>
 
@@ -13,8 +17,8 @@
   <label for="design">Diseño</label>
   <input type="file" name="design" />
 
-  <label for="description">Descripción: </label>
-  <textarea type="text" name="description" placeholder="Añade una descripción de tu diseño"></textarea>
+  <label for="descriptcion">Descripción: </label>
+  <textarea type="text" name="descriptcion" placeholder="Añade una descripción de tu diseño"></textarea>
 
   <button type="submit">Subir diseño</button>
 

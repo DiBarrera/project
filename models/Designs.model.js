@@ -13,7 +13,7 @@ const designsSchema = new Schema(
         path: {
             type: String
         },
-        description: {
+        descriptcion: {
             type: String
           }
         },

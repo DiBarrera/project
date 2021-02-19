@@ -44,15 +44,15 @@ router.get('/edit/:_id', (req, res, next) => {
 
 router.post('/edit/:juanito', uploadCloud.single('design'), (req, res, next) => {
   const id = req.params.juanito
-  const { artistDesign, title, description } = req.body
+  const { artistDesign, title, descriptcion } = req.body
   if (!req.file) {
-    Designs.findByIdAndUpdate(id, {$set: {artistDesign, title, description}}, {new: true})
+    Designs.findByIdAndUpdate(id, {$set: {artistDesign, title, descriptcion}}, {new: true})
       .then((respuestaBaseDatos) => {
       res.redirect('/gallery')
     })
   } else {
     const elArchivo = req.file.path
-      Designs.findByIdAndUpdate(id, {$set: {artistDesign, title, description, path:elArchivo}}, {new: true})
+      Designs.findByIdAndUpdate(id, {$set: {artistDesign, title, descriptcion, path:elArchivo}}, {new: true})
       .then((respuestaBaseDatos) => {
        res.redirect('/gallery')
     })

@@ -8,7 +8,8 @@ const uploadCloud = require('../configs/cloudinary.config')
 
 
 router.get('/upload-design', (req, res, next ) => {
-  res.render('admin/upload-design')
+  const {currentUser} = req.session
+  res.render('admin/upload-design', currentUser)
 })
 
 router.post('/upload-design', uploadCloud.single('design'), (req, res, next) => {

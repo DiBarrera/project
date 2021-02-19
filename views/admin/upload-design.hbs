@@ -1,25 +1,29 @@
 {{> navigation this }}
 
-<section class="container text-center mx-auto">
+<div id="form">
+
+  <section class="container text-center mx-auto">
     <div class="col-md-12 col-sm-12">
         <h1>Añade un diseño</h1>
     </div>
-</section>
+  </section>
 
-<form action="/upload-design" method="POST" enctype='multipart/form-data'>
+  <form action="/upload-design" method="POST" enctype='multipart/form-data'>
 
-  <label for="artistDesign">Nombre del artista: </label>
-  <input type="text" name="artistDesign" placeholder="Tu nombre" />
+    <label for="artistDesign">Nombre del artista: </label>
+    <input type="text" name="artistDesign" placeholder="Tu nombre" />
 
-  <label for="title">Titulo: </label>
-  <input type="text" name="title" placeholder="Titulo del diseño"/>
+    <label for="title">Titulo: </label>
+    <input type="text" name="title" placeholder="Titulo del diseño"/>
 
-  <label for="design">Diseño</label>
-  <input type="file" name="design" />
+    <label for="design">Diseño</label>
+    <input type="file" name="design" />
 
-  <label for="descriptcion">Descripción: </label>
-  <textarea type="text" name="descriptcion" placeholder="Añade una descripción de tu diseño"></textarea>
+    <label for="descriptcion">Descripción: </label>
+    <textarea type="text" name="descriptcion" placeholder="Añade una descripción de tu diseño"></textarea>
 
-  <button type="submit">Subir diseño</button>
+    <button type="submit">Subir diseño</button>
 
-</form>
+  </form>
+  
+</div>

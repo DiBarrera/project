@@ -10,16 +10,16 @@
         <li class="nav-item">
           <a class="nav-link" href="/signup">Registro de usuarios</a>
         </li>
-
         <li class="nav-item">
           <a class="nav-link" href="/login">Inicio de usuarios</a>
         </li>
         {{/unless}}
         
-        {{#if this.currentUser}}
+        {{#if this}}
         <li class="nav-item">
           <a class="nav-link" href="/logout">Salir de sesión de usuarios</a>
         </li>
+        
         <li class="nav-item">
           <a class="nav-link" href="/gallery">Galería</a>
         </li>

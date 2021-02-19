@@ -3,7 +3,7 @@ const Admin = require('../models/Admin.model.js')
 
 const DB_NAME = 'project'
 
-mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
+mongoose.connect(`mongodb+srv://diegobarrera:Holamundo2021@cluster0.l2d3j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true

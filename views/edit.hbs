@@ -1,21 +1,33 @@
 {{> navigation this }}
 
-<h2>Editar información</h2>
+<div id="form">
 
-<form action="/edit/{{responseDB._id}}" method="POST" enctype='multipart/form-data'>
+  <section class="container text-center mx-auto">
+    <div class="col-md-12 col-sm-12">
+        <h1>Editar información</h1>
+    </div>
+  </section>
 
-  <label for="artistDesign">Nombre del artista: </label>
-  <input type="text" name="artistDesign" placeholder="Tu nombre" value="{{responseDB.artistDesign}}"/>
+  <form action="/edit/{{responseDB._id}}" method="POST" enctype='multipart/form-data'>
 
-  <label for="title">Titulo: </label>
-  <input type="text" name="title" placeholder="Editar titulo" value="{{responseDB.title}}"/>
+    <div class="mb-3 row">
+      <label for="artistDesign" class="col-sm-2 col-form-label">Nombre del artista: </label>
+      <div class="col-sm-10">
+        <input type="text" name="artistDesign" placeholder="Tu nombre" value="{{responseDB.artistDesign}}"/>
+      </div>
+    </div>
 
-  <label for="design">Diseño</label>
-  <input type="file" name="design" />
+    <label for="title">Titulo: </label>
+    <input type="text" name="title" placeholder="Editar titulo" value="{{responseDB.title}}"/>
 
-  <label for="description">Descripción: </label>
-  <textarea type="text" name="description" placeholder="Editar descripción" value="{{responseDB.description}}"></textarea>
+    <label for="design">Diseño</label>
+    <input type="file" name="design" />
 
-  <button type="submit">Hacer cambios</button>
+    <label for="description">Descripción: </label>
+    <textarea type="text" name="description" placeholder="Editar descripción" value="{{responseDB.description}}"></textarea>
 
-</form>
+    <button type="submit">Hacer cambios</button>
+
+  </form>
+
+</div>

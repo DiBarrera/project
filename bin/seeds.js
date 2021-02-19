@@ -11,33 +11,33 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`, {
 
 const artists = [
     {
-        admin: 'Admin 1',
-        nombre: 'Nombre 1',
-        apellido: 'Apellido 1',
+        admin: 'Admin1',
+        nombre: 'Nombre1',
+        apellido: 'Apellido1',
         email: 'correo1@gmail.com',
         telefono: '722 000 0001',
         passwordHash: '123456789abcABC'
     },
     {
-      admin: 'Admin 2',
-      nombre: 'Nombre 2',
-      apellido: 'Apellido 2',
+      admin: 'Admin2',
+      nombre: 'Nombre2',
+      apellido: 'Apellido2',
       email: 'correo2@gmail.com',
       telefono: '722 000 0002',
       passwordHash: '234567891abcABC'
     },
     {
-      admin: 'Admin 3',
-      nombre: 'Nombre 3',
-      apellido: 'Apellido 3',
+      admin: 'Admin3',
+      nombre: 'Nombre3',
+      apellido: 'Apellido3',
       email: 'correo3@gmail.com',
       telefono: '722 000 0003',
       passwordHash: '345678912abcABC'
     },
     {
-      admin: 'Admin 4',
-      nombre: 'Nombre 4',
-      apellido: 'Apellido 4',
+      admin: 'Admin4',
+      nombre: 'Nombre4',
+      apellido: 'Apellido4',
       email: 'correo4@gmail.com',
       telefono: '722 000 0004',
       passwordHash: '456789123abcABC'

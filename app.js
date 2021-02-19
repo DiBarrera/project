@@ -16,8 +16,6 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const indexRouter = require('./routes/index.routes');
 const authRouter = require('./routes/auth.routes');
 const adminRouter = require('./routes/admin.routes');
-// const userRouter = require('./routes/user.routes');
-// const designsRouter = require('./routes/designs.routes');
 
 const app = express();
 
@@ -35,8 +33,6 @@ app.use(cookieParser());
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/', adminRouter);
-// app.use('/', userRouter);
-// app.use('/', designsRouter);
 
 // Express View engine setup
 app.set('views', path.join(__dirname, 'views'));

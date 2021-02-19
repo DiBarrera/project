@@ -1,37 +1,46 @@
 {{> navigation this }}
 
-<section class="container text-center mx-auto">
-    <div class="col-md-12 col-sm-12">
-        <h1>Gallery CampoSanto</h1>
-    </div>
-</section>
+<div id="signup">
 
-<div class="d-flex flex-row-reverse flex-wrap-reverse">
-     
-{{#each this.uploadInfo}}
-    
-    <div class="col p-2">
-        <div class="card" style="width: 18rem;">
-            <div class="card-title">
-                <h3>Nombre del artista: {{this.artistDesign}}</h3>
-            </div>
-            <p>Titulo: {{this.title}}</p>
-            <img class="card-img-top img-fluid" src="{{this.path}}" alt="Design">
-            <div class="card-body">
-                <p class="card-text">Descripción: {{this.descriptcion}}.</p>
-            </div>
-            <div class="modal-footer">
-                <form action="/edit/{{this._id}}" method="GET">
-                    <button type="submit" class="btn btn-primary">Editar</button>
-                </form>
-                <form action="/delte/{{this.id}}" method="POST">
-                    <button type="submit" class="btn btn-secondary">Borrar</button>
-                </form>
+    <section class="container text-center mx-auto mt-5">
+        <div class="col-md-12 col-sm-12">
+            <h1>Gallería CampoSanto</h1>
+        </div>
+    </section>
+
+    <div class="d-flex justify-content-center mt-5 mb-5">
+        <a href="/upload-design">
+            <button class="btn btn-dark px-5 py-2" type="submit" formaction="/gallery">Subir Diseño</button>
+        </a>
+    </div>
+
+    <div class="d-flex flex-row-reverse flex-wrap-reverse">
+        
+    {{#each this.uploadInfo}}
+        
+        <div class="col p-2">
+            <div class="card" style="width: 18rem;">
+                <div class="card-title">
+                    <h3>Nombre del artista: {{this.artistDesign}}</h3>
+                </div>
+                <h5>Titulo: {{this.title}}</h5>
+                <img class="card-img-top img-fluid" src="{{this.path}}" alt="Design">
+                <div class="card-body">
+                    <p class="card-text">Descripción: {{this.descriptcion}}.</p>
+                </div>
+                <div class="modal-footer">
+                    <form action="/edit/{{this._id}}" method="GET">
+                        <button type="submit" class="btn btn-dark">Editar</button>
+                    </form>
+                    <form action="/delte/{{this.id}}" method="POST">
+                        <button type="submit" class="btn btn-secondary">Borrar</button>
+                    </form>
+                </div>
             </div>
         </div>
+
+    {{/each}}
+
     </div>
-
-
-{{/each}}
 
 </div>

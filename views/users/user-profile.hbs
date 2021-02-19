@@ -3,9 +3,10 @@
 {{#if userInSession}}
     <h2>Bienvenido, {{ userInSession.username }}!</h2>
     <p>Esta es tu página de perfil!</p>
-    <button>
-        <a href="/user-profile">Refresca la página</a>
-    </button>
+
+    <a href="/gallery">
+      <button class="btn btn-dark px-5 py-2" type="submit" formaction="/gallery">Galería</button>
+    </a>
 {{else}}
   <p>Aún no has ingresado!</p>
   <a href="/login">Log in</a>

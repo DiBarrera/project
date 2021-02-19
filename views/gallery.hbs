@@ -8,13 +8,12 @@
         </div>
     </section>
 
-    {{!-- {{#if this.currentUser}} --}}
     <div class="d-flex justify-content-center mt-5 mb-5">
         <a href="/upload-design">
             <button class="btn btn-dark px-5 py-2" type="submit" formaction="/gallery">Subir Diseño</button>
         </a>
     </div>
-    {{!-- {{/if}} --}}
+
 
     <div class="d-flex flex-row-reverse flex-wrap-reverse">
         
@@ -30,7 +29,6 @@
                 <div class="card-body">
                     <p class="card-text">Descripción: {{this.descriptcion}}.</p>
                 </div>
-                {{!-- {{#if this.currentUser}} --}}
                 <div class="modal-footer">
                     <form action="/edit/{{this._id}}" method="GET">
                         <button type="submit" class="btn btn-dark">Editar</button>
@@ -39,7 +37,6 @@
                         <button type="submit" class="btn btn-secondary">Borrar</button>
                     </form>
                 </div>
-                {{!-- {{/if}} --}}
             </div>
         </div>
 

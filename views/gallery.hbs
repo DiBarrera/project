@@ -2,17 +2,19 @@
 
 <div id="signup">
 
-    <section class="container text-center mx-auto mt-5">
+    <section class="container text-center mx-auto mt-5 mb-5">
         <div class="col-md-12 col-sm-12">
             <h1>Gallería CampoSanto</h1>
         </div>
     </section>
 
+    {{!-- {{#if this.currentUser}} --}}
     <div class="d-flex justify-content-center mt-5 mb-5">
         <a href="/upload-design">
             <button class="btn btn-dark px-5 py-2" type="submit" formaction="/gallery">Subir Diseño</button>
         </a>
     </div>
+    {{!-- {{/if}} --}}
 
     <div class="d-flex flex-row-reverse flex-wrap-reverse">
         
@@ -23,11 +25,12 @@
                 <div class="card-title">
                     <h3>Nombre del artista: {{this.artistDesign}}</h3>
                 </div>
-                <h5>Titulo: {{this.title}}</h5>
+                <h5>Título: {{this.title}}</h5>
                 <img class="card-img-top img-fluid" src="{{this.path}}" alt="Design">
                 <div class="card-body">
                     <p class="card-text">Descripción: {{this.descriptcion}}.</p>
                 </div>
+                {{!-- {{#if this.currentUser}} --}}
                 <div class="modal-footer">
                     <form action="/edit/{{this._id}}" method="GET">
                         <button type="submit" class="btn btn-dark">Editar</button>
@@ -36,6 +39,7 @@
                         <button type="submit" class="btn btn-secondary">Borrar</button>
                     </form>
                 </div>
+                {{!-- {{/if}} --}}
             </div>
         </div>
 

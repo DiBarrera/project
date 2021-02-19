@@ -151,19 +151,6 @@ router.get('/admin/adminProfile', (req, res) => {
   res.render('admin/adminProfile', {cookie: req.session.adminUser })
 })
 
-
-
-// PRIVADO
-
-// router.get('/private' ,(req,res) => {
-  
-//   if(req.session.currentUser) {
-//     return res.render("private")
-//   }
-
-//   res.send("No estas loggeado, es un área privada.")
-// })
-
 // LOGOUT
 
 router.get('/logout', (req, res) => {

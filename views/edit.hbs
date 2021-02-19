@@ -1,0 +1,21 @@
+{{> navigation this }}
+
+<h2>Editar información</h2>
+
+<form action="/edit/{{responseDB._id}}" method="POST" enctype='multipart/form-data'>
+
+  <label for="artistDesign">Nombre del artista: </label>
+  <input type="text" name="artistDesign" placeholder="Tu nombre" value="{{responseDB.artistDesign}}"/>
+
+  <label for="title">Titulo: </label>
+  <input type="text" name="title" placeholder="Editar titulo" value="{{responseDB.title}}"/>
+
+  <label for="design">Diseño</label>
+  <input type="file" name="design" />
+
+  <label for="description">Descripción: </label>
+  <textarea type="text" name="descriptcion" placeholder="Editar descripción" value="{{responseDB.descriptcion}}"></textarea>
+
+  <button type="submit">Hacer cambios</button>
+
+</form>

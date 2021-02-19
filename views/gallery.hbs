@@ -4,14 +4,20 @@
 
 
 
-{{#each oneDesignFound}}
+{{#each this.uploadInfo}}
 
-    <p>Nombre artista: {{oneDesignFound.artistDesign}}</p> 
+    <p>Nombre artista: {{this.artistDesign}}</p> 
 
-    <p>Titulo: {{oneDesignFound.title}}</p> 
+    <p>Titulo: {{this.title}}</p> 
 
-    <p>Imagen: {{oneDesignFound.design}}</p> 
+    <img src="{{this.path}}">
 
-    <p>Descripcion: {{oneDesignFound.description}}</p> 
+    <p>Descripcion: {{this.description}}</p>
+    <form action="/edit/{{this._id}}" method="GET">
+        <button type="submit">Editar</button>
+    </form>
+    <form action="/delete/{{this.id}}" method="POST">
+        <button type="submit">Borrar</button>
+    </form>
 
 {{/each}}

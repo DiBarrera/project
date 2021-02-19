@@ -14,7 +14,7 @@ const designsSchema = new Schema(
         path: {
             type: String
         },
-        descriptcion: {
+        description: {
             type: String
           }
         },
